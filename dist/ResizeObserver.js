@@ -925,9 +925,10 @@
 
     var index = (function () {
         // Export existing implementation if available.
-        if (typeof global$1.ResizeObserver !== 'undefined') {
-            return global$1.ResizeObserver;
-        }
+        // Commented out by MinervaMedical to prevent memory leak in iOS implementation.
+//         if (typeof global$1.ResizeObserver !== 'undefined') {
+//             return global$1.ResizeObserver;
+//         }
         return ResizeObserver;
     })();
 
