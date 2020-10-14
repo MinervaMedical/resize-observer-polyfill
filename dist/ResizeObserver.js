@@ -899,15 +899,15 @@
          *      dimensions of the observed elements change.
          */
         function ResizeObserver(callback) {
-            if (!(this instanceof ResizeObserver)) {
-                throw new TypeError('Cannot call a class as a function.');
-            }
-            if (!arguments.length) {
-                throw new TypeError('1 argument required, but only 0 present.');
-            }
-            var controller = ResizeObserverController.getInstance();
-            var observer = new ResizeObserverSPI(callback, controller, this);
-            observers.set(this, observer);
+//            if (!(this instanceof ResizeObserver)) {
+//                throw new TypeError('Cannot call a class as a function.');
+//            }
+//            if (!arguments.length) {
+//                throw new TypeError('1 argument required, but only 0 present.');
+//            }
+//            var controller = ResizeObserverController.getInstance();
+//            var observer = new ResizeObserverSPI(callback, controller, this);
+//            observers.set(this, observer);
         }
         return ResizeObserver;
     }());
@@ -918,8 +918,8 @@
         'disconnect'
     ].forEach(function (method) {
         ResizeObserver.prototype[method] = function () {
-            var _a;
-            return (_a = observers.get(this))[method].apply(_a, arguments);
+//            var _a;
+//            return (_a = observers.get(this))[method].apply(_a, arguments);
         };
     });
 

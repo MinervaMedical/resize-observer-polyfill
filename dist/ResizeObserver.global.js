@@ -997,32 +997,32 @@ var observers = typeof WeakMap !== 'undefined' ? new WeakMap() : new MapShim();
  * exposing only those methods and properties that are defined in the spec.
  */
 var ResizeObserver = function(callback) {
-    if (!(this instanceof ResizeObserver)) {
-        throw new TypeError('Cannot call a class as a function.');
-    }
-    if (!arguments.length) {
-        throw new TypeError('1 argument required, but only 0 present.');
-    }
+//    if (!(this instanceof ResizeObserver)) {
+//        throw new TypeError('Cannot call a class as a function.');
+//    }
+//    if (!arguments.length) {
+//        throw new TypeError('1 argument required, but only 0 present.');
+//    }
 
-    var controller = ResizeObserverController.getInstance();
-    var observer = new ResizeObserverSPI(callback, controller, this);
+//    var controller = ResizeObserverController.getInstance();
+//    var observer = new ResizeObserverSPI(callback, controller, this);
 
-    observers.set(this, observer);
+//    observers.set(this, observer);
 };
 
 // Expose public methods of ResizeObserver.
 ['observe', 'unobserve', 'disconnect'].forEach(function (method) {
     ResizeObserver.prototype[method] = function () {
-        return (ref = observers.get(this))[method].apply(ref, arguments);
-        var ref;
+//        return (ref = observers.get(this))[method].apply(ref, arguments);
+//        var ref;
     };
 });
 
 var index = (function () {
     // Export existing implementation if available.
-    if (typeof global$1.ResizeObserver !== 'undefined') {
-        return global$1.ResizeObserver;
-    }
+//    if (typeof global$1.ResizeObserver !== 'undefined') {
+//        return global$1.ResizeObserver;
+//    }
 
     global$1.ResizeObserver = ResizeObserver;
 
